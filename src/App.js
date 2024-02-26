@@ -1,25 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import CreateAccount from './Components/CreateAccount';
 
 function App() {
-  return (
+
+
+export default App;
+ return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React - Must Get it done!
-        </a>
-      </header>
+      <div className="container">
+        <HashRouter>
+          <NavBar />
+          <UserContext.Provider value={{ users: [{ name: 'abel', email: 'abel@mit.edu', password: 'secret', balance: 100 }] }}>
+            <div className="container d-flex centerContent">
+             // <Route path="/" exact component={Home} />
+              <Route path="/CreateAccount/" component={CreateAccount} />
+             //<Route path="/deposit/" component={Deposit} />
+              //<Route path="/withdraw/" component={Withdraw} />
+             // <Route path="/alldata/" component={AllData} />
+            </div>
+          </UserContext.Provider>
+        </HashRouter>
+      </div>
     </div>
   );
 }
-
-export default App;
